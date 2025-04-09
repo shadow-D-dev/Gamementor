@@ -1,0 +1,16 @@
+# Ignore node_modules in frontend and server
+frontend/node_modules/
+frontend/.env
+
+Server/node_modules/
+Server/.env
+
+# Common ignores
+node_modules/
+.env
+.vscode/
+*.log
+dist/
+build/
+.DS_Store
+Thumbs.db
