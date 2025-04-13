@@ -1,6 +1,6 @@
 import React from "react";
 
-const GameCard = ({ title, description, image }) => {
+const HomeCards = ({ title, description, image }) => {
   return (
     <div 
          className="card shadow d-flex flex-column justify-content-between"
@@ -9,7 +9,7 @@ const GameCard = ({ title, description, image }) => {
         minWidth: "200px",
         maxWidth: "250px",
         margin: "0 auto",
-        height: "350px",
+        height: "310px",
         overflow: "hidden",
       }}
     >
@@ -46,4 +46,4 @@ const GameCard = ({ title, description, image }) => {
   );
 };
 
-export default GameCard;
+export default HomeCards;
