@@ -5,6 +5,10 @@ const videoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  postby: {
+    type: String,
+    default: "admin", // ✅ default value future inserts के लिए
+  },
 });
 
 export const ValorantVideo = mongoose.model("ValorantVideo", videoSchema, "valorant");

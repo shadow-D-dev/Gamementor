@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const player = ({ gameName }) => {
+const Player = ({ gameName }) => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
@@ -26,4 +26,4 @@ const player = ({ gameName }) => {
     </div>
   );
 };
-export default player;
+export default Player;
