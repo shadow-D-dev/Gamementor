@@ -3,7 +3,7 @@ import React from "react";
 const HomeCards = ({ title, description, image }) => {
   return (
     <div 
-         className="card shadow d-flex flex-column justify-content-between"
+         className="card shadow d-flex flex-column justify-content-between transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"
       style={{
         width: "100%",
         minWidth: "200px",
