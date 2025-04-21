@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 if (!clerkPubKey) {
-  throw new Error("Missing Publishable Key");
+  throw new Error("Missing  Publishable   Key");
 }
 
 
