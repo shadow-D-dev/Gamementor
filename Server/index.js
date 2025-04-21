@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import allGameRoutes from "./routes/allRoutes.js"; // ✅ apne route file ka naam yeh hai
+import { assignOrgAdminRole } from './clerk/clerkService.js';  
+
 
 dotenv.config();
 
@@ -21,5 +23,6 @@ mongoose
     app.listen(process.env.PORT, () =>
       console.log(`🚀 Server running on port ${process.env.PORT}`)
     );
+    assignOrgAdminRole(process.env.ADMIN_EMAIL); 
   })
   .catch((err) => console.error("❌ MongoDB connection error:", err));

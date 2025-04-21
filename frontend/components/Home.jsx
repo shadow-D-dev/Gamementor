@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import HomeCards from "../components/HomeCards";
-import { AddGame } from "./AddGame";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { useClerk } from '@clerk/clerk-react';  // Import useClerk
+import { AddGame } from './AddGame';
 
 // images
 import pubgImg from "./image/bgmi.png";
@@ -11,7 +12,6 @@ import csgoImg from "./image/csgo.png";
 import cocImg from "./image/coc.png";
 import valorantImg from "./image/valo.png";
 
-
 // Renamed array to avoid conflict with GameCard component
 export const gameCardsData = [
   {
@@ -19,7 +19,7 @@ export const gameCardsData = [
     image: valorantImg,
     description:
       "Sharpshooters ka ultimate battlefield! Valorant ek 5v5 tactical shooter hai jisme aim, strategy aur teamwork sab kuch hai. Agents ke unique abilities ke saath har round ek naya challenge ban jaata hai. Chalo seekhte hain top-tier gameplay aur ban jao Radiant!",
-    // api: "http://localhost:5000/api/valorant",
+      // api: "http://localhost:5000/api/valorant",
     api: "https://gamementor.onrender.com/api/valorant"
   },
   {
@@ -44,7 +44,7 @@ export const gameCardsData = [
     description:
       "Build. Raid. Conquer. Apna khud ka base banao, troops train karo aur doosre players ke villages par attack karo. CoC mein smart base design aur attack strategies hi tumhe top clan tak le jaayengi. Yahaan har warrior banega mastermind!",
     // api: "http://localhost:5000/api/COC",
-    api: "https://gamementor.onrender.com/api/COC"
+            api: "https://gamementor.onrender.com/api/COC"
   },
   {
     title: "brawlstar",
@@ -52,13 +52,14 @@ export const gameCardsData = [
     description:
       "Fast-paced action, cartoon-style mayhem! Brawl Stars ek 3v3 arcade shooter hai jisme multiple game modes aur unique brawlers hote hain. Quick matches, intense fights aur fun gameplay ka perfect combo. Aao sikhein best brawlers aur winning strategies.",
     // api: "http://localhost:5000/api/brawlstart",
-    api: "https://gamementor.onrender.com/api/brawlstart"
+            api: "https://gamementor.onrender.com/api/brawlstart"
   },
 ];
 
 const Home = () => {
   const { gameName } = useParams();
   const navigate = useNavigate();
+  const { user } = useClerk();  // Get user from Clerk to check if they're admin
 
   const selectedGame = gameCardsData.find(
     (game) => game.title.toLowerCase() === gameName?.toLowerCase()
@@ -120,11 +121,19 @@ const Home = () => {
               />
             </div>
           </div>
-
         ))}
-        <div>
-          <AddGame />
-        </div>
+
+        {/* Show AddGame component if user is admin */}
+        {user && user.publicMetadata?.role === 'admin' && (
+          <div
+            className="col-sm-6 col-md-4 col-lg-3 mb-4"
+            style={{ cursor: "pointer" }}
+          >
+            <div style={{ cursor: "pointer" }}>
+              <AddGame /> {/* This is your admin-only component */}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
