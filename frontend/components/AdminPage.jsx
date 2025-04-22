@@ -1,26 +1,24 @@
 import React, { useEffect } from 'react';
 import { useClerk } from '@clerk/clerk-react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
+import { useNavigate } from 'react-router-dom';
 
 const AdminPage = () => {
   const { user } = useClerk();
-  const navigate = useNavigate(); // Initialize navigate hook
-  
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Redirect after 5 seconds if the user is not an admin
     if (!user || user.publicMetadata?.role !== 'admin') {
       setTimeout(() => {
-        // navigate('/'); // Redirect to Home page
-        navigate('https://gamementor.vercel.app');
+        window.location.href = 'https://gamementor.vercel.app'; // Use window.location.href for external URL
       }, 5000); // Wait for 5 seconds before redirect
     } else {
       // Redirect after 5 seconds for admins
       setTimeout(() => {
-        navigate('/'); // Redirect to Home page
+        navigate('/'); // Internal React Router navigation
       }, 5000); // Wait for 5 seconds before redirect
     }
-  }, [user, navigate]); // Dependencies: user and navigate
+  }, [user, navigate]);
 
   if (!user || user.publicMetadata?.role !== 'admin') {
     return (
@@ -36,9 +34,8 @@ const AdminPage = () => {
       <h2>Welcome to the Admin Dashboard</h2>
       <p>Hello, {user.firstName} {user.lastName}!</p>
       <p>This is your admin page. Only authorized users can see this.</p>
-         </div>
+    </div>
   );
 };
-
 
 export default AdminPage;
