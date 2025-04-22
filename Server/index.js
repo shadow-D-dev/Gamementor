@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import allGameRoutes from "./routes/allRoutes.js"; // ✅ apne route file ka naam yeh hai
+import addVideo from "./routes/addVideo.js"
 import { assignOrgAdminRole } from './clerk/clerkService.js';  
 
 
@@ -12,8 +13,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ✅ Use all game routes
-app.use("/api", allGameRoutes); // saare route `/api/valorant`, `/api/pubg` etc. yahan se handle honge
+app.use("/api/videos/fetch", allGameRoutes);
+app.use("/api/videos/add", addVideo);
+
+
 
 // ✅ MongoDB connection
 mongoose

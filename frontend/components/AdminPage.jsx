@@ -11,7 +11,8 @@ const AdminPage = () => {
     // Redirect after 5 seconds if the user is not an admin
     if (!user || user.publicMetadata?.role !== 'admin') {
       setTimeout(() => {
-        navigate('/'); // Redirect to Home page
+        // navigate('/'); // Redirect to Home page
+        navigate('https://gamementor.vercel.app');
       }, 5000); // Wait for 5 seconds before redirect
     } else {
       // Redirect after 5 seconds for admins

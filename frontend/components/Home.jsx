@@ -3,7 +3,7 @@ import HomeCards from "../components/HomeCards";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useClerk } from '@clerk/clerk-react';  // Import useClerk
-import { AddGame } from './AddGame';
+
 
 // images
 import pubgImg from "./image/bgmi.png";
@@ -13,46 +13,48 @@ import cocImg from "./image/coc.png";
 import valorantImg from "./image/valo.png";
 
 // Renamed array to avoid conflict with GameCard component
+const BASE_API = import.meta.env.VITE_API_BASE_URL;
 export const gameCardsData = [
   {
     title: "valorant",
     image: valorantImg,
     description:
       "Sharpshooters ka ultimate battlefield! Valorant ek 5v5 tactical shooter hai jisme aim, strategy aur teamwork sab kuch hai. Agents ke unique abilities ke saath har round ek naya challenge ban jaata hai. Chalo seekhte hain top-tier gameplay aur ban jao Radiant!",
-      // api: "http://localhost:5000/api/valorant",
-    api: "https://gamementor.onrender.com/api/valorant"
+      // api: `${BASE_API}/valorant`
+      api: "http://localhost:5000/api/videos/fetch/valorant"
   },
   {
     title: "pubg",
     image: pubgImg,
     description:
       "Survival ka asli test! BGMI (ya PUBG Mobile) ek battle royale game hai jahan 100 players ek island par land karte hain – sirf ek hi winner banta hai. Loot, shoot aur survive karo – hum sikhaenge har zone mein master kaise banein.",
-    // api: "http://localhost:5000/api/PUBG",
-    api: "https://gamementor.onrender.com/api/PUBG"
+    api: "http://localhost:5000/api/videos/fetch/PUBG"
+    // api: `${BASE_API}/PUBG`
   },
   {
     title: "csgo",
     image: csgoImg,
     description:
       "The OG tactical shooter! CS:GO ek legendary FPS hai jahan precision aur reflexes matter karte hain. CT vs T – har map, har clutch moment mein skill dikhani hoti hai. Let’s break down pro-level plays aur banaye tumhe ek clutch god.",
-    // api: "http://localhost:5000/api/CSGO",
-    api: "https://gamementor.onrender.com/api/CSGO"
+    api: "http://localhost:5000/api/videos/fetch/CSGO"
+    // api: `${BASE_API}/CSGO`
   },
   {
     title: "coc",
     image: cocImg,
     description:
       "Build. Raid. Conquer. Apna khud ka base banao, troops train karo aur doosre players ke villages par attack karo. CoC mein smart base design aur attack strategies hi tumhe top clan tak le jaayengi. Yahaan har warrior banega mastermind!",
-    // api: "http://localhost:5000/api/COC",
-            api: "https://gamementor.onrender.com/api/COC"
-  },
+    api: "http://localhost:5000/api/videos/fetch/COC"
+    // api: `${BASE_API}/COC`
+     },
   {
     title: "brawlstar",
     image: brawlImg,
     description:
       "Fast-paced action, cartoon-style mayhem! Brawl Stars ek 3v3 arcade shooter hai jisme multiple game modes aur unique brawlers hote hain. Quick matches, intense fights aur fun gameplay ka perfect combo. Aao sikhein best brawlers aur winning strategies.",
-    // api: "http://localhost:5000/api/brawlstart",
-            api: "https://gamementor.onrender.com/api/brawlstart"
+    api: "http://localhost:5000/api/videos/fetch/brawlstart"
+    // api: `${BASE_API}/brawlstart`
+            
   },
 ];
 
@@ -128,9 +130,15 @@ const Home = () => {
           <div
             className="col-sm-6 col-md-4 col-lg-3 mb-4"
             style={{ cursor: "pointer" }}
+            onClick={() => navigate('/addgame')}
           >
             <div style={{ cursor: "pointer" }}>
-              <AddGame /> {/* This is your admin-only component */}
+             
+              <HomeCards
+        title="Add New Game"
+        description="Admin only - Add a new game guide"
+        image="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" 
+      />
             </div>
           </div>
         )}

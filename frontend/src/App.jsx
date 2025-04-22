@@ -7,7 +7,8 @@ import Home from '../components/Home';
 import About from '../components/Aboutus';
 import Contact from '../components/Contact';
 import VideoList from "../components/VideoList";
-import AdminPage from '../components/AdminPage';  // ← ये तुम बना सकते हो
+import AdminPage from '../components/AdminPage';  
+import AddGamePage from '../components/AddGamePage';
 
 function App() {
   return (
@@ -19,9 +20,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/:gameName" element={<VideoList />} />
+          <Route path="/addgame" element={<AddGamePage />} />
 
-          {/* 🛡️ Protected Admin Route */}
-          <Route
+         <Route
             path="/admin"
             element={
               <>
@@ -35,7 +36,7 @@ function App() {
             }
           />
 
-          {/* Clerk Auth Routes */}
+         
           <Route path="/sign-in/*" element={<SignIn routing="path" path="/sign-in" />} />
           <Route path="/sign-up/*" element={<SignUp routing="path" path="/sign-up" />} />
         </Routes>
