@@ -26,7 +26,7 @@ function App() {
             path="/admin"
             element={
               <>
-                <SignedIn>
+                <SignedIn >
                   <AdminPage/>
                 </SignedIn>
                 <SignedOut>
