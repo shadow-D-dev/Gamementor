@@ -8,6 +8,8 @@ import { useAuth } from '@clerk/clerk-react';
 const TournamentPage = () => {
   const { getToken } = useAuth();
   const { user } = useUser();  // Use Clerk's useUser hook to access user data
+  const API_BASE = import.meta.env.VITE_API_TOURNAMENTS;
+  // console.log(API_BASE);
 
 
   const [formData, setFormData] = useState({
@@ -25,8 +27,8 @@ const TournamentPage = () => {
       console.log("User is admin (isAdmin flag)");
       const fetchData = async () => {
         const token = await getToken();
-        const response = await axios.get("http://localhost:5000/api/tournaments/all", {
-        // const response = await axios.get(`${import.meta.env.VITE_API_TOURNAMENTS_BASE}/all`, {
+        // const response = await axios.get("http://localhost:5000/api/tournaments/all", {
+        const response = await axios.get(`${API_BASE}/all`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setRegistrations(response.data);
@@ -35,7 +37,7 @@ const TournamentPage = () => {
     }
   }, [user, getToken]);
 
-  
+
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -46,10 +48,8 @@ const TournamentPage = () => {
     setStatus('Registering...');
 
     try {
-      // const response = await axios.post(`${import.meta.env.VITE_API_TOURNAMENTS_BASE}/register`, formData, {
-        
-      const response = await axios.post("http://localhost:5000/api/tournaments/register", formData, {
-
+      // const response = await axios.post("http://localhost:5000/api/tournaments/register", formData, {
+      const response = await axios.post(`${API_BASE}/register`, formData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -133,7 +133,7 @@ const TournamentPage = () => {
       </form>
 
       <SignedIn>
-      {user?.publicMetadata?.isAdmin ? ( 
+        {user?.publicMetadata?.isAdmin ? (
           <div className="mt-6">
             <h3 className="text-xl font-semibold">Admin Panel - Tournament Registrations</h3>
             {registrations.length > 0 ? (

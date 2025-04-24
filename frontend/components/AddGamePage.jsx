@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { gameCardsData } from "./Home"; // Ensure the path is correct
 
-// const BASE_API = import.meta.env.VITE_API_BASE_URL_FOR_ADD; //|| "http://localhost:5000/api/videos/add"
-// const BASE_API = "http://localhost:5000/api/videos/addVideo";
-
+const BASE_API = import.meta.env.VITE_API_ADD_VIDEO;
 // console.log(BASE_API);  
 
 const AddGamePage = () => {
@@ -29,7 +27,8 @@ const AddGamePage = () => {
       //   import.meta.env.VITE_API_ADD_VIDEO,
       //   newGameData,
       const response = await axios.post(
-        "http://localhost:5000/api/addVideo",
+        // "http://localhost:5000/api/addVideo",
+        BASE_API,
           newGameData,
         {
           headers: {
