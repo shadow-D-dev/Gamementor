@@ -19,7 +19,7 @@ app.use(ClerkExpressWithAuth());
  
 
 app.use("/api/videos/fetch", allGameRoutes);
-app.use("/api/videos/add", addVideo);
+app.use("/api", addVideo);
 app.use("/api/tournaments", tournament);
 
 

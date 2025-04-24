@@ -25,7 +25,8 @@ const TournamentPage = () => {
       console.log("User is admin (isAdmin flag)");
       const fetchData = async () => {
         const token = await getToken();
-        const response = await axios.get(`${import.meta.env.VITE_API_TOURNAMENTS_BASE}/all`, {
+        const response = await axios.get("http://localhost:5000/api/tournaments/all", {
+        // const response = await axios.get(`${import.meta.env.VITE_API_TOURNAMENTS_BASE}/all`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setRegistrations(response.data);
@@ -45,7 +46,10 @@ const TournamentPage = () => {
     setStatus('Registering...');
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_TOURNAMENTS_BASE}/register`, formData, {
+      // const response = await axios.post(`${import.meta.env.VITE_API_TOURNAMENTS_BASE}/register`, formData, {
+        
+      const response = await axios.post("http://localhost:5000/api/tournaments/register", formData, {
+
         headers: {
           'Content-Type': 'application/json',
         },

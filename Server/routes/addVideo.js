@@ -1,10 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
 
+
 const router = express.Router();
 
 // Predefined allowed categories (same as frontend cards)
 const allowedCategories = ["VALORANT", "PUBG", "CSGO", "COC", "BRAWLSTART"];
+
 
 router.post("/addVideo", async (req, res) => {
   const { title, link, category } = req.body;
@@ -13,7 +15,9 @@ router.post("/addVideo", async (req, res) => {
     return res.status(400).json({ error: "All fields are required" });
   }
 
-  const finalCategory = category.toUpperCase();
+  const finalCategory = category.toUpperCase(); // 👈 match karo existing collections se
+
+
 
   // Check if the category is in the allowed list
   if (!allowedCategories.includes(finalCategory)) {
