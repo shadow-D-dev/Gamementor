@@ -4,7 +4,9 @@ import dotenv from "dotenv";
 import cors from "cors";
 import allGameRoutes from "./routes/allRoutes.js"; // ✅ apne route file ka naam yeh hai
 import addVideo from "./routes/addVideo.js"
+import tournament from "./routes/tournament.js";
 import { assignOrgAdminRole } from './clerk/clerkService.js';  
+import { ClerkExpressWithAuth } from "@clerk/clerk-sdk-node";
 
 
 dotenv.config();
@@ -12,10 +14,13 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(ClerkExpressWithAuth());
+ 
+ 
 
 app.use("/api/videos/fetch", allGameRoutes);
 app.use("/api/videos/add", addVideo);
-
+app.use("/api/tournaments", tournament);
 
 
 // ✅ MongoDB connection

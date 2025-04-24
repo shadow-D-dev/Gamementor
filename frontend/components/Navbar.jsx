@@ -62,8 +62,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contact">
-                Contact Us
+              <Link className="nav-link" to="/TournamentPage">
+              Tournament Pages
               </Link>
             </li>
             <li className="nav-item">

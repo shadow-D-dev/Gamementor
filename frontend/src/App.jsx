@@ -5,7 +5,7 @@ import { SignIn, SignUp, SignedIn, SignedOut, RedirectToSignIn } from '@clerk/cl
 import Navbar from '../components/Navbar';
 import Home from '../components/Home';
 import About from '../components/Aboutus';
-import Contact from '../components/Contact';
+import TournamentPage from '../components/TournamentPage';
 import VideoList from "../components/VideoList";
 import AdminPage from '../components/AdminPage';  
 import AddGamePage from '../components/AddGamePage';
@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/TournamentPage" element={<TournamentPage />} />
           <Route path="/:gameName" element={<VideoList />} />
           <Route path="/addgame" element={<AddGamePage />} />
 
