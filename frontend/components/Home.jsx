@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import HomeCards from "../components/HomeCards";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import { useClerk } from '@clerk/clerk-react';  // Import useClerk
-
+import { useClerk } from "@clerk/clerk-react"; // Import useClerk
 
 // images
 import pubgImg from "./image/bgmi.png";
@@ -11,9 +10,6 @@ import brawlImg from "./image/brawl.png";
 import csgoImg from "./image/csgo.png";
 import cocImg from "./image/coc.png";
 import valorantImg from "./image/valo.png";
-
-
-
 
 const BASE_API = import.meta.env.VITE_API_FETCH_VIDEOS;
 
@@ -23,8 +19,8 @@ export const gameCardsData = [
     image: valorantImg,
     description:
       "Sharpshooters ka ultimate battlefield! Valorant ek 5v5 tactical shooter hai jisme aim, strategy aur teamwork sab kuch hai. Agents ke unique abilities ke saath har round ek naya challenge ban jaata hai. Chalo seekhte hain top-tier gameplay aur ban jao Radiant!",
-      api: `${BASE_API}/valorant`
-      // api: "http://localhost:5000/api/videos/fetch/valorant"
+    api: `${BASE_API}/valorant`,
+    // api: "http://localhost:5000/api/videos/fetch/valorant"
   },
   {
     title: "pubg",
@@ -32,16 +28,15 @@ export const gameCardsData = [
     description:
       "Survival ka asli test! BGMI (ya PUBG Mobile) ek battle royale game hai jahan 100 players ek island par land karte hain – sirf ek hi winner banta hai. Loot, shoot aur survive karo – hum sikhaenge har zone mein master kaise banein.",
     // api: "http://localhost:5000/api/videos/fetch/PUBG"
-    api: `${BASE_API}/PUBG`
-        },
+    api: `${BASE_API}/PUBG`,
+  },
   {
     title: "csgo",
     image: csgoImg,
     description:
       "The OG tactical shooter! CS:GO ek legendary FPS hai jahan precision aur reflexes matter karte hain. CT vs T – har map, har clutch moment mein skill dikhani hoti hai. Let’s break down pro-level plays aur banaye tumhe ek clutch god.",
     // api: "http://localhost:5000/api/videos/fetch/CSGO"
-    api: `${BASE_API}/CSGO`
-    
+    api: `${BASE_API}/CSGO`,
   },
   {
     title: "coc",
@@ -49,26 +44,25 @@ export const gameCardsData = [
     description:
       "Build. Raid. Conquer. Apna khud ka base banao, troops train karo aur doosre players ke villages par attack karo. CoC mein smart base design aur attack strategies hi tumhe top clan tak le jaayengi. Yahaan har warrior banega mastermind!",
     // api: "http://localhost:5000/api/videos/fetch/COC"
-    api: `${BASE_API}/COC`
-     },
+    api: `${BASE_API}/COC`,
+  },
   {
     title: "brawlstart",
     image: brawlImg,
     description:
       "Fast-paced action, cartoon-style mayhem! Brawl Stars ek 3v3 arcade shooter hai jisme multiple game modes aur unique brawlers hote hain. Quick matches, intense fights aur fun gameplay ka perfect combo. Aao sikhein best brawlers aur winning strategies.",
     // api: "http://localhost:5000/api/videos/fetch/brawlstart"
-    api: `${BASE_API}/brawlstart`
-            
+    api: `${BASE_API}/brawlstart`,
   },
-];  
+];
 
 const Home = () => {
   const { gameName } = useParams();
   const navigate = useNavigate();
-  const { user } = useClerk();  // Get user from Clerk to check if they're admin
+  const { user } = useClerk(); // Get user from Clerk to check if they're admin
 
   const selectedGame = gameCardsData.find(
-    (game) => game.title.toLowerCase() === gameName?.toLowerCase()
+    (game) => game.title.toLowerCase() === gameName?.toLowerCase(),
   );
 
   // State to manage video list and selected video
@@ -96,8 +90,9 @@ const Home = () => {
   };
 
   return (
-    <div className="container">
-      <div className="bg-gray-100 py-8 px-6 rounded-xl shadow-md text-center mb-10">
+    <div className="container mx-auto px-4">
+      {/* Header Section */}
+      <div className=" py-8 px-6 rounded-xl  text-center mb-10">
         <h1 className="text-2xl md:text-3xl font-semibold mb-4">
           Start Your Gaming Journey
         </h1>
@@ -111,39 +106,35 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="d-flex flex-wrap justify-content-center gap-4 my-3">
+      {/* Game Cards Grid */}
+      <div className="flex flex-wrap justify-center gap-12 my-3">
         {gameCardsData.map((game, index) => (
           <div
             key={index}
-            className="col-sm-6 col-md-4 col-lg-3 mb-4"
+            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
             onClick={() => handleCardClick(game.title)}
             style={{ cursor: "pointer" }}
           >
-            <div style={{ cursor: "pointer" }}>
-              <HomeCards
-                title={game.title}
-                description={game.description}
-                image={game.image}
-              />
-            </div>
+            <HomeCards
+              title={game.title}
+              description={game.description}
+              image={game.image}
+            />
           </div>
         ))}
 
         {/* Show AddGame component if user is admin */}
-        {user && user.publicMetadata?.role === 'admin' && (
+        {user && user.publicMetadata?.role === "admin" && (
           <div
-            className="col-sm-6 col-md-4 col-lg-3 mb-4"
+            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
+            onClick={() => navigate("/addgame")}
             style={{ cursor: "pointer" }}
-            onClick={() => navigate('/addgame')}
           >
-            <div style={{ cursor: "pointer" }}>
-             
-              <HomeCards
-        title="Add New Game"
-        description="Admin only - Add a new game guide"
-        image="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" 
-      />
-            </div>
+            <HomeCards
+              title="Add New Game"
+              description="Admin only - Add a new game guide"
+              image="https://cdn-icons-png.flaticon.com/512/1828/1828817.png"
+            />
           </div>
         )}
       </div>
