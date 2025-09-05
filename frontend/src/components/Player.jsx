@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactPlayer from "react-player";
 import axios from "axios";
 
 const Player = ({ gameName }) => {
@@ -17,28 +18,15 @@ const Player = ({ gameName }) => {
           key={vid._id}
           className="aspect-video w-full max-w-sm mx-auto rounded overflow-hidden shadow"
         >
-          <iframe
+          <ReactPlayer
             className="w-full h-full"
             src={vid.link.replace("youtu.be/", "www.youtube.com/embed/")}
             title="YouTube video player"
             allowFullScreen
-          ></iframe>
+          ></ReactPlayer>
         </div>
       ))}
     </div>
-    // <div className="video-container">
-    //   {videos.map((vid) => (
-    //     <div key={vid._id} className="video-card">
-    //       <iframe
-    //         width="300"
-    //         height="200"
-    //         src={vid.link.replace("youtu.be/", "www.youtube.com/embed/")}
-    //         title="YouTube video player"
-    //         allowFullScreen
-    //       ></iframe>
-    //     </div>
-    //   ))}
-    // </div>
   );
 };
 export default Player;
