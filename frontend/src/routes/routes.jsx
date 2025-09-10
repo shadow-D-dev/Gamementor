@@ -7,13 +7,11 @@ import {
   RedirectToSignIn,
 } from "@clerk/clerk-react";
 import Home from "../components/Home.jsx";
-import Aboutus from "../components/Aboutus.jsx";
 import RootLayout from "./RootLayout.jsx";
 import TournamentPage from "../components/TournamentPage.jsx";
 import VideoList from "../components/VideoList.jsx";
 import AdminPage from "../components/AdminPage.jsx";
 import AddGamePage from "../components/AddGamePage.jsx";
-import Cards from "../components/Cards.jsx";
 import Mentors from "../components/Aboutus.jsx";
 
 export const router = createBrowserRouter([

@@ -5,7 +5,7 @@ import cocImg from "../assets/coc.png";
 import valorantImg from "../assets/images.jpeg";
 
 const BASE_API = import.meta.env.VITE_API_FETCH_VIDEOS;
-export const gameCardsData = [
+export const MentorsData = [
   {
     title: "shadow",
     image: pubgImg,
