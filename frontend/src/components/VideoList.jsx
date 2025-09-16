@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { gameCardsData } from "./GameCardDataComp";
+import { GamesCarouselData } from "./CarouselData";
 import ReactPlayer from "react-player";
 
 const extractYouTubeId = (url) => {
@@ -14,7 +14,7 @@ const VideoList = () => {
   const [videoList, setVideoList] = useState([]);
   const [selectVideo, setSelectVideo] = useState(null);
 
-  const selectedGame = gameCardsData.find(
+  const selectedGame = GamesCarouselData.find(
     (game) => game.title.toLowerCase() === gameName?.toLowerCase(),
   );
 

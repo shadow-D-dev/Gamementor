@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useClerk } from "@clerk/clerk-react";
 import addgame from "../assets/addgame.jpg";
-import { gameCardsData } from "./GameCardDataComp";
+import { GamesCarouselData } from "./CarouselData";
 import LeftCardComp from "./LeftCardComp";
-import pagecarddata from "./PageCardData";
+import HeroCardData from "./HeroCardData";
 import CarouselComp from "./CarouselComp";
-import { motion } from "framer-motion";
 import SlideRightIn from "./animations/SlideRightIn";
 import SlideLeftIn from "./animations/SlideLeftIn";
 const Home = () => {
   const { gameName } = useParams();
   const { user } = useClerk();
 
-  const selectedGame = gameCardsData.find(
+  const selectedGame = GamesCarouselData.find(
     (game) => game.title.toLowerCase() === gameName?.toLowerCase(),
   );
 
@@ -36,7 +35,7 @@ const Home = () => {
   }, [gameName, selectedGame]);
 
   const carouselData = [
-    ...gameCardsData,
+    ...GamesCarouselData,
     ...(user && user.publicMetadata?.role === "admin"
       ? [
           {
@@ -48,19 +47,21 @@ const Home = () => {
         ]
       : []),
   ];
-  console.log({ ...pagecarddata });
+  console.log({ ...HeroCardData });
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between  gap-10">
+    <div className="flex flex-col md:flex-row items-center justify-between mx-auto mt-44 gap-10 ">
       {/* Header Section (Left Side) */}
-      <div className="w-1/2 flex flex-col  p-4 rounded-xl">
+      <div className="w-1/2   p-4 rounded-xl ">
         {/* <SlideRightIn> */}
-        <LeftCardComp {...pagecarddata.Homepage} />
+        <LeftCardComp {...HeroCardData.Homepage} />
         {/* </SlideRightIn> */}
       </div>
       {/* --- Game Cards Carousel (Right Side) --- */}
-      <div className="relative w-1/2">
+      <div className="relative w-1/2 ">
+        {/* <SlideLeftIn> */}
         <CarouselComp carouselData={carouselData} />
+        {/* </SlideLeftIn> */}
       </div>
     </div>
   );

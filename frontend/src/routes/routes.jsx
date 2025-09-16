@@ -12,7 +12,9 @@ import TournamentPage from "../components/TournamentPage.jsx";
 import VideoList from "../components/VideoList.jsx";
 import AdminPage from "../components/AdminPage.jsx";
 import AddGamePage from "../components/AddGamePage.jsx";
-import Mentors from "../components/Aboutus.jsx";
+import Mentors from "../components/Mentors.jsx";
+import Tournaments from "../components/Tournaments.jsx";
+import Community from "../components/Community.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -24,9 +26,12 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       { path: "/about", element: <Mentors /> },
-      { path: "/TournamentPage", element: <TournamentPage /> },
+      { path: "/TournamentPage", element: <Tournaments /> },
       { path: "/:gameName", element: <VideoList /> },
       { path: "/addgame", element: <AddGamePage /> },
+      { path: "/tournaments", element: <AddGamePage /> },
+      { path: "/community", element: <Community /> },
+
       {
         path: "/admin",
         element: (

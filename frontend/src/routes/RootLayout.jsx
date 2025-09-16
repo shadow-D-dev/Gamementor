@@ -23,7 +23,7 @@ export default function RootLayout() {
       </div>
 
       <div className="relative flex justify-center items-center">
-        <div className="w-[1250px]">
+        <div className="w-[1250px] min-w-[1250px] max-w-[1250px] ">
           <Navbar />
 
           <div className="w-full pl-4">

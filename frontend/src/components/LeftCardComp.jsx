@@ -7,7 +7,7 @@ function LeftCardComp({
   highlights,
 }) {
   return (
-    <div className="h-full w-full  p-4 rounded-xl text-white backdrop-blur-2xl shadow-glass flex flex-col gap-3">
+    <div className="p-4 rounded-xl text-white backdrop-blur-2xl shadow-glass flex flex-col gap-3 h-[550px]">
       {/* Tagline */}
       <h3 className="text-cyan-400 font-medium text-xl tracking-widest">
         {tagline}

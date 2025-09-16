@@ -82,14 +82,9 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <a
-                href="https://discord.gg/mXWSUzad"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80"
-              >
+              <Link to="/community" className="hover:text-blue-400">
                 Community
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

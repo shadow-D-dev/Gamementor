@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { gameCardsData } from "./GameCardDataComp";
+import { GamesCarouselData } from "./CarouselData";
 
 const BASE_API = import.meta.env.VITE_API_ADD_VIDEO;
 
@@ -96,7 +96,7 @@ const AddGamePage = () => {
               onChange={(e) => setCategory(e.target.value)}
               required
             >
-              {gameCardsData.map((game, index) => (
+              {GamesCarouselData.map((game, index) => (
                 <option key={index} value={game.title.toLowerCase()}>
                   {game.title.charAt(0).toUpperCase() + game.title.slice(1)}
                 </option>
