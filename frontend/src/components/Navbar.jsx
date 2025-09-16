@@ -89,11 +89,6 @@ const Navbar = () => {
                 className="hover:opacity-80"
               >
                 Community
-                {/* <img */}
-                {/*   src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" */}
-                {/*   alt="Discord" */}
-                {/*   className="w-5 h-5" */}
-                {/* /> */}
               </a>
             </li>
           </ul>

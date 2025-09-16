@@ -49,10 +49,10 @@ const VideoList = () => {
               <button
                 key={index}
                 onClick={() => setSelectVideo(video)}
-                className={`w-full py-3 px-4 text-center font-semibold rounded-lg border transition ${
+                className={`w-full py-3 px-4 text-center font-semibold rounded-lg  transition ${
                   selectVideo?._id === video._id
                     ? "bg-blue-600 text-white"
-                    : "bg-white hover:bg-gray-100 text-gray-800 border-gray-300"
+                    : "backdrop-blur-xl  bg-black/2  shadow-glassr hover:shadow-glass-pressedr text-white"
                 }`}
               >
                 🎮 Video {index + 1} - {videoId}

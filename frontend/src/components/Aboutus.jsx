@@ -1,4 +1,3 @@
-import { motion, AnimatePresence } from "framer-motion";
 import { MentorsData } from "./MentorsData";
 import pagecarddata from "./PageCardData";
 import LeftCardComp from "./LeftCardComp";
@@ -7,9 +6,9 @@ const Mentors = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between mx-auto mt-44 gap-10 mb-96">
       {/* Header Section (Left Side) */}
-      <motion.div className="w-1/2 flex flex-col  p-4 rounded-xl">
+      <div className="w-1/2 flex flex-col  p-4 rounded-xl">
         <LeftCardComp {...pagecarddata.MentorPage} />
-      </motion.div>
+      </div>
       {/* --- Game Cards Carousel (Right Side) --- */}
       <div className="relative w-1/2 h-full">
         <CarouselComp carouselData={MentorsData} />

@@ -4,10 +4,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useClerk } from "@clerk/clerk-react";
 import addgame from "../assets/addgame.jpg";
 import { gameCardsData } from "./GameCardDataComp";
-import { motion, AnimatePresence } from "framer-motion";
 import LeftCardComp from "./LeftCardComp";
 import pagecarddata from "./PageCardData";
 import CarouselComp from "./CarouselComp";
+import { motion } from "framer-motion";
+import SlideRightIn from "./animations/SlideRightIn";
+import SlideLeftIn from "./animations/SlideLeftIn";
 const Home = () => {
   const { gameName } = useParams();
   const { user } = useClerk();
@@ -47,14 +49,17 @@ const Home = () => {
       : []),
   ];
   console.log({ ...pagecarddata });
+
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between mx-auto mt-44 gap-10 mb-96">
+    <div className="flex flex-col md:flex-row items-center justify-between  gap-10">
       {/* Header Section (Left Side) */}
-      <motion.div className="w-1/2 flex flex-col  p-4 rounded-xl">
+      <div className="w-1/2 flex flex-col  p-4 rounded-xl">
+        {/* <SlideRightIn> */}
         <LeftCardComp {...pagecarddata.Homepage} />
-      </motion.div>
+        {/* </SlideRightIn> */}
+      </div>
       {/* --- Game Cards Carousel (Right Side) --- */}
-      <div className="relative w-1/2 h-full">
+      <div className="relative w-1/2">
         <CarouselComp carouselData={carouselData} />
       </div>
     </div>
