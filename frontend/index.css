@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Basic&family=Orbitron:wght@400..900&display=swap");
+@import "tailwindcss";
+@theme {
+  --font-orbitron: "Orbitron", sans-serif;
+}
+
+body {
+  background-color: dimgray;
+}
+
+@layer utilities {
+  .shadow-glass {
+    box-shadow:
+      25px 25px 75px rgba(0, 0, 0, 0.25),
+      10px 10px 70px rgba(0, 0, 0, 0.25),
+      inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+      inset 5px 5px 10px rgba(135, 207, 235, 0.2),
+      inset -5px -5px 15px rgba(255, 255, 255, 0.1);
+  }
+
+  .hover\:shadow-glass-pressed:hover {
+    box-shadow:
+      inset 8px 8px 20px rgba(0, 0, 0, 0.6),
+      inset -8px -8px 20px rgba(255, 255, 255, 0.15);
+  }
+
+  .shadow-glassr {
+    box-shadow:
+      25px 25px 75px rgba(0, 0, 0, 0.25),
+      10px 10px 70px rgba(0, 0, 0, 0.25),
+      -5px -5px 15px rgba(255, 255, 255, 0.6),
+      /* highlight top-left */ 5px 5px 15px rgba(0, 0, 0, 0.3); /* shadow bottom-right */
+  }
+
+  .hover\:shadow-glass-pressedr:hover {
+    box-shadow:
+      8px 8px 20px rgba(0, 0, 0, 0.5),
+      /* stronger shadow */ -8px -8px 20px rgba(255, 255, 255, 0.4); /* stronger highlight */
+  }
+}

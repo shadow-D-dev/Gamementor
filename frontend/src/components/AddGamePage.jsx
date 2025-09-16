@@ -1,21 +1,19 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { gameCardsData } from "./Home"; // Ensure the path is correct
+import { GamesCarouselData } from "./CarouselData";
 
 const BASE_API = import.meta.env.VITE_API_ADD_VIDEO;
-// console.log(BASE_API);  
 
 const AddGamePage = () => {
   const [title, setTitle] = useState("");
   const [link, setLink] = useState("");
-  const [category, setCategory] = useState("valorant"); // Default selected category
+  const [category, setCategory] = useState("valorant");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Prepare the game data to send to the backend
     const newGameData = {
       title,
       link,
@@ -23,30 +21,22 @@ const AddGamePage = () => {
     };
 
     try {
-      // const response = await axios.post(
-      //   import.meta.env.VITE_API_ADD_VIDEO,
-      //   newGameData,
-      const response = await axios.post(
-        // "http://localhost:5000/api/addVideo",
-        BASE_API,
-          newGameData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.post(BASE_API, newGameData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (response.status === 201) {
         setSuccessMessage(response.data.message || "Video added successfully!");
         setErrorMessage("");
         setTitle("");
         setLink("");
-        
+
         setTimeout(() => setSuccessMessage(""), 3000);
       }
     } catch (error) {
-      setErrorMessage("Failed to add the video. Please try again.");
+      setErrorMessage(`Failed to add the video.Eror:${error}Please try again`);
       setSuccessMessage("");
     }
   };
@@ -54,18 +44,24 @@ const AddGamePage = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center px-4">
       <div className="bg-white shadow-md rounded-xl p-8 w-full max-w-xl">
-        <h2 className="text-2xl font-bold text-center mb-6">🎮 Add Game Video</h2>
+        <h2 className="text-2xl font-bold text-center mb-6">
+          🎮 Add Game Video
+        </h2>
 
         {errorMessage && (
           <div className="text-red-500 text-center mb-4">{errorMessage}</div>
         )}
         {successMessage && (
-          <div className="text-green-500 text-center mb-4">{successMessage}</div>
+          <div className="text-green-500 text-center mb-4">
+            {successMessage}
+          </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Title</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Title
+            </label>
             <input
               className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               type="text"
@@ -77,7 +73,9 @@ const AddGamePage = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Video Link</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Video Link
+            </label>
             <input
               className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               type="text"
@@ -89,14 +87,16 @@ const AddGamePage = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Select Category</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Select Category
+            </label>
             <select
               className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
               required
             >
-              {gameCardsData.map((game, index) => (
+              {GamesCarouselData.map((game, index) => (
                 <option key={index} value={game.title.toLowerCase()}>
                   {game.title.charAt(0).toUpperCase() + game.title.slice(1)}
                 </option>

@@ -4,10 +4,14 @@ import {
   COCVideo,
   CSGOVideo,
   PUBGVideo,
-  BrawlstartVideo
+  BrawlstartVideo,
 } from "../models/schema.js";
 
 const router = express.Router();
+
+router.get("/", (req, res) => {
+  res.send("Main videos fetch route");
+});
 
 router.get("/valorant", async (req, res) => {
   try {
@@ -53,7 +57,5 @@ router.get("/brawlstart", async (req, res) => {
     res.status(500).json({ error: "Brawlstart data fetch failed" });
   }
 });
-
-
 
 export default router;
