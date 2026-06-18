@@ -10,41 +10,36 @@ export const GamesCarouselData = [
     title: "bgmi",
     image: pubgImg,
     description:
-      "Survival ka asli test! BGMI (ya PUBG Mobile) ek battle royale game hai jahan 100 players ek island par land karte hain – sirf ek hi winner banta hai. Loot, shoot aur survive karo – hum sikhaenge har zone mein master kaise banein.",
-    // api: "http://localhost:5000/api/videos/fetch/PUBG"
+      "BGMI brings the thrill of battle royale with intense gunfights, rotating zones, and survival tactics. Test your reflexes and strategy to become the last one standing.",
     api: `${BASE_API}/PUBG`,
   },
   {
     title: "valorant",
     image: valorantImg,
     description:
-      "Sharpshooters ka ultimate battlefield! Valorant ek 5v5 tactical shooter hai jisme aim, strategy aur teamwork sab kuch hai. Agents ke unique abilities ke saath har round ek naya challenge ban jaata hai. Chalo seekhte hain top-tier gameplay aur ban jao Radiant!",
+      "Valorant blends precise shooting with agent abilities. Every match is a mix of sharp aim, creative utility, and flawless teamwork.",
     api: `${BASE_API}/valorant`,
-    // api: "http://localhost:5000/api/videos/fetch/valorant"
   },
   {
     title: "csgo",
     image: csgoImg,
     description:
-      "The OG tactical shooter! CS:GO ek legendary FPS hai jahan precision aur reflexes matter karte hain. CT vs T – har map, har clutch moment mein skill dikhani hoti hai. Let’s break down pro-level plays aur banaye tumhe ek clutch god.",
-    // api: "http://localhost:5000/api/videos/fetch/CSGO"
+      "CS:GO is the arena for tactical legends. Classic maps, razor-sharp aim, and perfect nade lineups make every round a nail-biter.",
     api: `${BASE_API}/CSGO`,
   },
   {
     title: "coc",
     image: cocImg,
     description:
-      "Build. Raid. Conquer. Apna khud ka base banao, troops train karo aur doosre players ke villages par attack karo. CoC mein smart base design aur attack strategies hi tumhe top clan tak le jaayengi. Yahaan har warrior banega mastermind!",
-    // api: "http://localhost:5000/api/videos/fetch/COC"
+      "Clash of Clans is all about building empires and waging wars. From clever base layouts to powerful attack combos, it’s strategy at its finest.",
     api: `${BASE_API}/COC`,
   },
   {
-    title: "brawlstart",
+    title: "brawlstars",
     image: brawlImg,
     description:
-      "Fast-paced action, cartoon-style mayhem! Brawl Stars ek 3v3 arcade shooter hai jisme multiple game modes aur unique brawlers hote hain. Quick matches, intense fights aur fun gameplay ka perfect combo. Aao sikhein best brawlers aur winning strategies.",
-    // api: "http://localhost:5000/api/videos/fetch/brawlstart"
-    api: `${BASE_API}/brawlstart`,
+      "Brawl Stars is fast, chaotic, and endlessly fun. With unique brawlers and quick 3v3 battles, it’s the perfect mix of casual fun and competitive skill.",
+    api: `${BASE_API}/brawlstars`,
   },
 ];
 
@@ -53,41 +48,36 @@ export const MentorsCarouselData = [
     title: "shadow",
     image: pubgImg,
     description:
-      "Survival ka asli test! BGMI (ya PUBG Mobile) ek battle royale game hai jahan 100 players ek island par land karte hain – sirf ek hi winner banta hai. Loot, shoot aur survive karo – hum sikhaenge har zone mein master kaise banein.",
-    // api: "http://localhost:5000/api/videos/fetch/PUBG"
-    api: `${BASE_API}/PUBG`,
+      "Shadow is a BGMI veteran known for clutch survivals and zone mastery. Learn rotations, gunfights, and leadership from a pro IGL.",
+    api: `${BASE_API}/mentors/bgmi`,
   },
   {
     title: "marcus",
     image: valorantImg,
     description:
-      "Sharpshooters ka ultimate battlefield! Valorant ek 5v5 tactical shooter hai jisme aim, strategy aur teamwork sab kuch hai. Agents ke unique abilities ke saath har round ek naya challenge ban jaata hai. Chalo seekhte hain top-tier gameplay aur ban jao Radiant!",
-    api: `${BASE_API}/valorant`,
-    // api: "http://localhost:5000/api/videos/fetch/valorant"
+      "Marcus, a Radiant-level Valorant mentor, teaches agent mastery, sharp aiming drills, and high-level team strategies.",
+    api: `${BASE_API}/mentors/valorant`,
   },
   {
     title: "omega",
     image: csgoImg,
     description:
-      "The OG tactical shooter! CS:GO ek legendary FPS hai jahan precision aur reflexes matter karte hain. CT vs T – har map, har clutch moment mein skill dikhani hoti hai. Let’s break down pro-level plays aur banaye tumhe ek clutch god.",
-    // api: "http://localhost:5000/api/videos/fetch/CSGO"
-    api: `${BASE_API}/CSGO`,
+      "Omega is a CSGO tactician with years of LAN experience. From perfect smokes to eco-round comebacks, he’ll sharpen your game sense.",
+    api: `${BASE_API}/mentors/csgo`,
   },
   {
     title: "harsh",
     image: cocImg,
     description:
-      "Build. Raid. Conquer. Apna khud ka base banao, troops train karo aur doosre players ke villages par attack karo. CoC mein smart base design aur attack strategies hi tumhe top clan tak le jaayengi. Yahaan har warrior banega mastermind!",
-    // api: "http://localhost:5000/api/videos/fetch/COC"
-    api: `${BASE_API}/COC`,
+      "Harsh is a Clash of Clans strategist who designs unbreakable bases and teaches advanced attack combos to dominate clan wars.",
+    api: `${BASE_API}/mentors/coc`,
   },
   {
     title: "deadshot",
     image: brawlImg,
     description:
-      "Fast-paced action, cartoon-style mayhem! Brawl Stars ek 3v3 arcade shooter hai jisme multiple game modes aur unique brawlers hote hain. Quick matches, intense fights aur fun gameplay ka perfect combo. Aao sikhein best brawlers aur winning strategies.",
-    // api: "http://localhost:5000/api/videos/fetch/brawlstart"
-    api: `${BASE_API}/brawlstart`,
+      "Deadshot specializes in Brawl Stars mechanics and brawler synergy. Learn the secrets of timing, positioning, and perfect comps.",
+    api: `${BASE_API}/mentors/brawlstars`,
   },
 ];
 
@@ -96,35 +86,35 @@ export const CommunityCarouselData = [
     title: "bgmi-community",
     image: pubgImg,
     description:
-      "BGMI ke players ke liye chat rooms – strategies share karo, squads banao aur apne best clutches dikhayo. Yeh jagah hai jahan har lobby ka masti aur meta discuss hota hai.",
+      "Form squads, share rotation maps, and post your best clutches. The BGMI community is all about survival tips and fun banter.",
     api: `${BASE_API}/community/bgmi`,
   },
   {
     title: "valorant-community",
     image: valorantImg,
     description:
-      "Valorant ke agents aur maps par endless discussions. Lineups share karo, clutch moments ke clips daalo aur new teammates dhundo. Ek Radiant-level community ka hissa bano!",
+      "Discuss agents, share lineups, and clip your best aces. A community where Valorant mains connect and grow together.",
     api: `${BASE_API}/community/valorant`,
   },
   {
     title: "csgo-community",
     image: csgoImg,
     description:
-      "CT aur T dono camps ke liye dedicated chatrooms! Pro strats, nade lineups aur funny eco round moments – yahan sab milega. CSGO lovers ke liye perfect hangout.",
+      "From nade setups to ranked highlights, this is where CSGO players swap strategies, memes, and unforgettable clutch moments.",
     api: `${BASE_API}/community/csgo`,
   },
   {
     title: "coc-community",
     image: cocImg,
     description:
-      "Base designs aur attack strategies discuss karo, apna clan promote karo aur naye warriors recruit karo. Clashers ke liye ultimate adda!",
+      "Clashers unite! Share base designs, attack strategies, and recruit clanmates in this hub for builders and raiders alike.",
     api: `${BASE_API}/community/coc`,
   },
   {
     title: "brawlstars-community",
     image: brawlImg,
     description:
-      "Quick matches aur fun banter ke liye ek jagah! Best brawlers aur new comps par chat karo aur apne highlights share karo. Fast-paced aur full masti wali community.",
+      "A lively place for Brawlers to chat about comps, new modes, and highlight reels. Quick games, quick laughs, endless fun.",
     api: `${BASE_API}/community/brawlstars`,
   },
 ];
@@ -134,35 +124,35 @@ export const TournamentsCarouselData = [
     title: "bgmi-tournament",
     image: pubgImg,
     description:
-      "BGMI tournaments – solo aur squad dono formats! Har season ke saath naye maps aur naye rules. Register karo aur dikhao asli survival skills.",
+      "Join BGMI tournaments in solo, duo, and squad formats. Each season brings fresh rules and intense survival showdowns.",
     api: `${BASE_API}/tournaments/bgmi`,
   },
   {
     title: "valorant-tournament",
     image: valorantImg,
     description:
-      "Valorant ke competitive brackets! 5v5 battles, pro-style maps aur cash rewards. Har round ek naya clutch moment laata hai – team banao aur Radiant tak chhodo.",
+      "Compete in Valorant 5v5 brackets with pro-style maps and cash rewards. Every round is a chance to prove your clutch potential.",
     api: `${BASE_API}/tournaments/valorant`,
   },
   {
     title: "csgo-tournament",
     image: csgoImg,
     description:
-      "CSGO competitive leagues aur weekend cups! Har match ek chance hai apne reflex aur nade strats dikhane ka. Register karo aur ban jao clutch king.",
+      "Weekend cups and league-style CSGO battles. Master your aim, perfect your utilities, and fight for the top spot.",
     api: `${BASE_API}/tournaments/csgo`,
   },
   {
     title: "coc-tournament",
     image: cocImg,
     description:
-      "Clan wars aur tournament-style attacks! Base defense aur smart raids decide karte hain jeet. Apni clan ke saath register karo aur leaderboard dominate karo.",
+      "Clan wars turned competitive! Battle other clans in attack-defense tournaments to prove your strategic dominance.",
     api: `${BASE_API}/tournaments/coc`,
   },
   {
     title: "brawlstars-tournament",
     image: brawlImg,
     description:
-      "Fast-paced 3v3 matches, new modes aur intense finals! Har brawler ka combo matter karta hai. Enter karo aur jeeto bragging rights (aur prizes!).",
+      "Fast-paced 3v3 Brawl Stars tournaments with rotating modes and unique prizes. Outsmart your opponents and claim the crown.",
     api: `${BASE_API}/tournaments/brawlstars`,
   },
 ];

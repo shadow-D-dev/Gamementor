@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+// HACK:Let admin choose the schema for different games
 const videoSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -14,6 +14,7 @@ const videoSchema = new mongoose.Schema({
     default: "admin",
   },
 });
+// NOTE:Here's how tournaments will work so admins can create a tournament but the schema will change to gameCategory,allowed team numbers,rounds,points table,etc
 const tournamentSchema = new mongoose.Schema(
   {
     playerName: { type: String, required: true },
@@ -23,6 +24,7 @@ const tournamentSchema = new mongoose.Schema(
   },
   { timestamps: true },
 );
+//PERF:optimize checking if model exists or find good alternative to it.
 
 // Check if the model is already defined to prevent overwriting
 export const ValorantVideo =

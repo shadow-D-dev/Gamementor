@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { GamesCarouselData } from "./CarouselData";
 import ReactPlayer from "react-player";
 
@@ -17,7 +17,6 @@ const VideoList = () => {
   const selectedGame = GamesCarouselData.find(
     (game) => game.title.toLowerCase() === gameName?.toLowerCase(),
   );
-
   useEffect(() => {
     const fetchData = async () => {
       if (!selectedGame?.api) return;
@@ -32,8 +31,11 @@ const VideoList = () => {
     };
 
     fetchData();
-  }, [selectedGame.api, gameName]);
+  }, [selectedGame?.api, gameName]);
 
+  if (!selectedGame) {
+    return <Navigate to="/working-on" replace />;
+  }
   return (
     <div className="px-4 py-10  mx-auto max-w-[1250px]">
       <h2 className="text-center  text-2xl md:text-3xl font-bold mb-8 uppercase bg-gradient-to-r from-purple-600 via-blue-500 to-cyan-400 bg-clip-text text-transparent font-orbitron">
@@ -67,7 +69,6 @@ const VideoList = () => {
             <div className="w-full aspect-video rounded-xl border border-gray-300 shadow-lg overflow-hidden">
               <ReactPlayer
                 url={`https://youtu.be/${extractYouTubeId(selectVideo.link)}`}
-                controls
                 width="100%"
                 height="100%"
                 style={{ borderRadius: "12px" }}

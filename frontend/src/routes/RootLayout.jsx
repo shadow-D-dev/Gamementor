@@ -12,7 +12,7 @@ export default function RootLayout() {
         />
         {/* <div className="absolute inset-0 bg-black/40"></div> */}
         <motion.div
-          className="absolute inset-0 bg-black"
+          className="absolute inset-0 bg-black w-screen h-screen"
           animate={{ opacity: [0.1, 0.3, 0.1] }} // cycle between light & dark
           transition={{
             duration: 1.5,
