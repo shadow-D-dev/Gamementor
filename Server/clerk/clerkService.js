@@ -1,6 +1,6 @@
 import { Clerk } from "@clerk/clerk-sdk-node";
 import dotenv from "dotenv";
-
+// FIX:why isn't dotenv conf global
 dotenv.config();
 
 const clerkClient = Clerk({

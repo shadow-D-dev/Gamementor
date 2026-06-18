@@ -8,13 +8,14 @@ import {
 } from "@clerk/clerk-react";
 import Home from "../components/Home.jsx";
 import RootLayout from "./RootLayout.jsx";
-import TournamentPage from "../components/TournamentPage.jsx";
+// import TournamentPage from "../components/TournamentPage.jsx";
 import VideoList from "../components/VideoList.jsx";
 import AdminPage from "../components/AdminPage.jsx";
 import AddGamePage from "../components/AddGamePage.jsx";
 import Mentors from "../components/Mentors.jsx";
 import Tournaments from "../components/Tournaments.jsx";
 import Community from "../components/Community.jsx";
+import WorkingOn from "./WorkingOn.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ export const router = createBrowserRouter([
       { path: "/addgame", element: <AddGamePage /> },
       { path: "/tournaments", element: <AddGamePage /> },
       { path: "/community", element: <Community /> },
+      { path: "/working-on", element: <WorkingOn /> },
 
       {
         path: "/admin",
